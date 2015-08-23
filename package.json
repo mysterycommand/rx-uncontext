@@ -27,5 +27,17 @@
   "bugs": {
     "url": "https://github.com/mysterycommand/rx-uncontext/issues"
   },
-  "homepage": "https://github.com/mysterycommand/rx-uncontext#readme"
+  "homepage": "https://github.com/mysterycommand/rx-uncontext#readme",
+  "devDependencies": {
+    "babel-core": "^5.8.22",
+    "babel-loader": "^5.3.2",
+    "babel-runtime": "^5.8.20",
+    "code": "^1.5.0",
+    "lab": "^5.15.2",
+    "react": "^0.13.3",
+    "react-hot-loader": "^1.2.9",
+    "rx-dom": "^6.0.0",
+    "webpack": "^1.11.0",
+    "webpack-dev-server": "^1.10.1"
+  }
 }
