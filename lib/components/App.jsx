@@ -54,7 +54,10 @@ export default class App extends Component {
                     height: 360,
                     width: 640
                 }}>
-                    <Chart />
+                    <Chart
+                        uncontext={uncontext}
+                        delta={delta / 1000}
+                    />
                 </div>
             </div>
         );

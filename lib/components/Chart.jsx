@@ -6,10 +6,18 @@ export default class Chart extends Component {
     }
 
     render() {
+        let {
+            uncontext: {
+                a, b, c,
+                d, e, f
+            },
+            delta,
+            style
+        } = this.props;
+
         return (
-            <div style={{
-                backgroundColor: 'orange'
-            }}></div>
+            <div style={style}>
+            </div>
         );
     }
 }
@@ -17,7 +25,8 @@ export default class Chart extends Component {
 Chart.displayName = 'Chart';
 Chart.defaultProps = {
     style: {
-        display: 'relative'
+        // backgroundColor: 'orange',
+        position: 'relative',
         height: '100%',
         width: '100%'
     }

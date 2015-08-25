@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "An experiment using http://reactivex.io/ and http://www.uncontext.com/",
   "scripts": {
-    "build": "NODE_ENV=production webpack --config=config/webpack/build.js",
-    "start": "webpack-dev-server --config=config/webpack/devel.js --port=3000 --inline --hot",
+    "build": "NODE_ENV=production webpack --config=./config/webpack/build.js",
+    "start": "webpack-dev-server --config=./config/webpack/devel.js --port=3000 --inline --hot",
     "test": "lab --pattern '.test'"
   },
   "repository": {
