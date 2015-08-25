@@ -1,14 +1,16 @@
 import React, { Component } from 'react/addons';
 import Rx from 'rx-dom';
 
+import Chart from './Chart';
+
 export default class App extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            delta: 0,
+            uncontext: [],
             time: Date.now(),
-            uncontext: []
+            delta: 0
         };
 
         let uncontext = Rx.DOM.fromWebSocket('ws://duel.uncontext.com:80')
@@ -17,27 +19,54 @@ export default class App extends Component {
     }
 
     onData(data) {
-        let { delta, time, uncontext } = this.state;
+        let {
+            uncontext,
+            time,
+            delta
+        } = this.state;
+
         let t = Date.now();
         let d = t - time;
 
         uncontext.push(data);
 
         this.setState({
-            delta: d,
+            uncontext,
             time: t,
-            uncontext
+            delta: d
         });
     }
 
     render() {
-        let { delta, time, uncontext } = this.state;
-        console.log(delta, time);
-        console.log(JSON.stringify(uncontext[uncontext.length - 1], null, 2));
+        let {
+            uncontext,
+            time,
+            delta
+        } = this.state;
+
+        let {
+            style
+        } = this.props;
+
         return (
-            <div>App</div>
+            <div style={style}>
+                <div style={{
+                    height: 360,
+                    width: 640
+                }}>
+                    <Chart />
+                </div>
+            </div>
         );
     }
 };
 
 App.displayName = 'App';
+App.defaultProps = {
+    style: {
+        alignItems: 'center',
+        display: 'flex',
+        justifyContent: 'center',
+        height: '100%'
+    }
+};
