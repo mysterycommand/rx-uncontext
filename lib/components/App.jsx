@@ -1,6 +1,6 @@
 import React, { Component } from 'react/addons';
 
-export default class App {
+export default class App extends Component {
     constructor(props) {
         super(props);
     }
