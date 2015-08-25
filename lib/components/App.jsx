@@ -8,7 +8,7 @@ export default class App extends Component {
         super(props);
 
         this.state = {
-            uncontext: [],
+            data: {},
             time: Date.now(),
             delta: 0
         };
@@ -19,8 +19,9 @@ export default class App extends Component {
     }
 
     onData(data) {
+        // console.log(data);
+
         let {
-            uncontext,
             time,
             delta
         } = this.state;
@@ -28,10 +29,8 @@ export default class App extends Component {
         let t = Date.now();
         let d = t - time;
 
-        uncontext.push(data);
-
         this.setState({
-            uncontext,
+            data,
             time: t,
             delta: d
         });
@@ -39,7 +38,7 @@ export default class App extends Component {
 
     render() {
         let {
-            uncontext,
+            data,
             time,
             delta
         } = this.state;
@@ -55,7 +54,7 @@ export default class App extends Component {
                     width: 640
                 }}>
                     <Chart
-                        uncontext={uncontext}
+                        data={data}
                         delta={delta / 1000}
                     />
                 </div>
